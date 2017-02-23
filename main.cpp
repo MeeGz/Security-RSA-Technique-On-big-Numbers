@@ -297,58 +297,83 @@ public:
                 return true;
         return false;
     }
+    void encrypt (bigInt &m, bigInt &e, bigInt &n){
+        *this = powNumEx(m,e,n);
+    }
+    void decrypt (bigInt &c, bigInt &d, bigInt &n){
+        *this = powNumEx(c,d,n);
+    }
 };
 
 int main() {
     high_resolution_clock::time_point t1;
     high_resolution_clock::time_point t2;
-    string p,q,e,n;
+    string p,q,e,n,m,c;
     p = "12369571528747655798110188786567180759626910465726920556567298659370399748072366507234899432827475865189642714067836207300153035059472237275816384410077871";
     q = "2065420353441994803054315079370635087865508423962173447811880044936318158815802774220405304957787464676771309034463560633713497474362222775683960029689473";
     e = "65537";
+    c = "4397678428390379126255360246165021910057442267382175543246817108158797115317154540746718616555865161372450860559307149988169566508274711121236049281217144195628407516579953387138808449458611836421032431582081899650685651973204503916459595600207918950383877057152533041873901965623112895996177941667469292738";
+    m = "88";
 //    n = "25548364798832019218170326077010425733930233389897468141147917831084690989884562791601588954296621731652139141347541240725432606132471100644835778517336041031200174441223836394229943651678525471050219216183727749114047330431603023948126844573697946795476319956787513765533596926704755530772983549787878951983";
 //    p = "3";
 //    q = "3";
 //    cin >> p >> q;
 
-    bigInt P(p), Q(q), E(e), N, P1, Q1, phi, D, one("1"), two("2"), rem, resAdd, resSub, resMul, resDiv, resPow, resMod{p}, resIsPrime;
+    bigInt P(p), Q(q), E(e), N, P1, Q1, phi, D, C(c), cc, M(m), mm, one("1"), two("2"), rem, resAdd, resSub, resMul, resDiv, resPow, resMod{p}, resIsPrime;
     N.mulNum(P,Q);
     P1.subNum(P,one);
     Q1.subNum(Q,one);
     phi.mulNum(P1,Q1);
-    D.extEuclid(E,N);
+    D.extEuclid(E,phi);
+
     t1 = high_resolution_clock::now();
     for (int i = 0; i < 1; ++i) {
-//        if(resIsPrime.isPrime(P))
-//            cout << "YEAAAAAAAAAAAH!" << endl;
-//        else
-//            cout << "NOOOOOOOOOOOOO!" << endl;
-//
+        if(resIsPrime.isPrime(P))
+            cout << "YEAAAAAAAAAAAH!" << endl << "P is prime number" << endl;
+        else
+            cout << "NOOOOOOOOOOOOO!" << endl << "P is not prime number" << endl;
+        if(resIsPrime.isPrime(Q))
+            cout << "YEAAAAAAAAAAAH!" << endl << "Q is prime number" << endl;
+        else
+            cout << "NOOOOOOOOOOOOO!" << endl << "Q is not prime number" << endl;
+        N.mulNum(P,Q);
+        phi.mulNum(P1,Q1);
+        D.extEuclid(E,phi);
+        cc.encrypt(M,E,N);
+        mm.decrypt(C,D,N);
+        cout << "N: " << N.getNumStr() << endl;
+        cout << "D-calculated-: " << D.getNumStr() << endl;
+        cout << "Phi(n): " << phi.getNumStr() << endl;
+        cout << "C of M(88): " << cc.getNumStr() << endl;
+        cout << "M of C for M(88): " << mm.getNumStr() << endl;
 //        resAdd.addNum(P,Q);
 //        resSub.subNum(P,Q);
 //        resMul.mulNum(P,Q);
-//        resPow.powNumMod(P,resEuclid,N);
+//        resPow.powNumMod(P,D,N);
 //        resMod.mod(resMod,Q,rem);
 //        resDiv.divNum(P,Q,rem);
     }
     t2 = high_resolution_clock::now();
-    cout << P.getNumStr() << endl;
-    cout << Q.getNumStr() << endl;
-    cout << N.getNumStr() << endl;
-    cout << P1.getNumStr() << endl;
-    cout << Q1.getNumStr() << endl;
-    cout << phi.getNumStr() << endl;
-    cout << D.getNumStr() << endl << endl;
 
-//    cout << resAdd.getNumStr() << endl;
-//    cout << resSub.getNumStr() << endl;
-//    cout << resMul.getNumStr() << endl;
-//    cout << resPow.getNumStr() << endl;
-//    cout << resMod.getNumStr() << endl;
-//    cout << resDiv.getNumStr() << endl << "rem: "<< rem.getNumStr() << endl;
-//    cout << resEuclid.getNumStr() << endl;
+//    cout << "P: " << P.getNumStr() << endl;
+//    cout << "Q: " << Q.getNumStr() << endl;
+//    cout << "N: " << N.getNumStr() << endl;
+//    cout << "P-1: " << P1.getNumStr() << endl;
+//    cout << "Q-1: " << Q1.getNumStr() << endl;
+//    cout << "Phi(n): " << phi.getNumStr() << endl;
+//    cout << "D: " << D.getNumStr() << endl << endl;
+
+//    cout << "Add result: " << resAdd.getNumStr() << endl;
+//    cout << "Sub result: " << resSub.getNumStr() << endl;
+//    cout << "Mul result: " << resMul.getNumStr() << endl;
+//    cout << "Pow result: " << resPow.getNumStr() << endl;
+//    cout << "Mod result: " << resMod.getNumStr() << endl;
+//    cout << "Div result: " << resDiv.getNumStr() << endl << "rem: "<< rem.getNumStr() << endl;
+//    cout << "D-calculated-: " << D.getNumStr() << endl;
+//    cout << "C of M(88): " << cc.getNumStr() << endl;
+//    cout << "M of C for M(88): " << mm.getNumStr() << endl;
 
     auto duration = duration_cast<microseconds>(t2 - t1).count();
-    cout << duration << endl;
+    cout << "Time : " << duration <<"ms .... as: " << duration/1000000 << " sec"<< endl;
     return 0;
 }
