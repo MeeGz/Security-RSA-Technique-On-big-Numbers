@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/meegz/CLionProjects/Security_RSA/main.cpp
+/home/meegz/Projects/Security_RSA/main.cpp
 iostream
 -
 vector

@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/meegz/CLionProjects/Security_RSA/cmake-build-debug"/>
+				<Option working_dir="/home/meegz/Projects/Security_RSA/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/meegz/CLionProjects/Security_RSA/cmake-build-debug"/>
+				<Option working_dir="/home/meegz/Projects/Security_RSA/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/meegz/CLionProjects/Security_RSA/cmake-build-debug"/>
+				<Option working_dir="/home/meegz/Projects/Security_RSA/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Security_RSA">
-				<Option output="/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Security_RSA" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/meegz/CLionProjects/Security_RSA/cmake-build-debug"/>
+				<Option output="/home/meegz/Projects/Security_RSA/cmake-build-debug/Security_RSA" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/meegz/Projects/Security_RSA/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -54,15 +54,15 @@
 					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 Security_RSA"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 Security_RSA"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Security_RSA/fast">
-				<Option output="/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Security_RSA" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/meegz/CLionProjects/Security_RSA/cmake-build-debug"/>
+				<Option output="/home/meegz/Projects/Security_RSA/cmake-build-debug/Security_RSA" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/meegz/Projects/Security_RSA/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -77,17 +77,17 @@
 					<Add directory="/usr/include/c++/6/backward"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 Security_RSA/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 Security_RSA/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/meegz/Projects/Security_RSA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/meegz/CLionProjects/Security_RSA/main.cpp">
+		<Unit filename="/home/meegz/Projects/Security_RSA/main.cpp">
 			<Option target="Security_RSA"/>
 		</Unit>
-		<Unit filename="/home/meegz/CLionProjects/Security_RSA/CMakeLists.txt">
+		<Unit filename="/home/meegz/Projects/Security_RSA/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

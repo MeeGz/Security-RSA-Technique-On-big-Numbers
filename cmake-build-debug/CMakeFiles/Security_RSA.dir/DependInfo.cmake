@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/meegz/CLionProjects/Security_RSA/main.cpp" "/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/CMakeFiles/Security_RSA.dir/main.cpp.o"
+  "/home/meegz/Projects/Security_RSA/main.cpp" "/home/meegz/Projects/Security_RSA/cmake-build-debug/CMakeFiles/Security_RSA.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

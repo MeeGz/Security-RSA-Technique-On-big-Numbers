@@ -54,10 +54,10 @@ RM = /home/meegz/Apps/clion-2016.3.2/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/meegz/CLionProjects/Security_RSA
+CMAKE_SOURCE_DIR = /home/meegz/Projects/Security_RSA
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/meegz/CLionProjects/Security_RSA/cmake-build-debug
+CMAKE_BINARY_DIR = /home/meegz/Projects/Security_RSA/cmake-build-debug
 
 #=============================================================================
 # Target rules for target CMakeFiles/Security_RSA.dir
@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/meegz/CLionProjects/Security_RSA/cmake-build-debug
 CMakeFiles/Security_RSA.dir/all:
 	$(MAKE) -f CMakeFiles/Security_RSA.dir/build.make CMakeFiles/Security_RSA.dir/depend
 	$(MAKE) -f CMakeFiles/Security_RSA.dir/build.make CMakeFiles/Security_RSA.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/meegz/CLionProjects/Security_RSA/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Security_RSA"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/meegz/Projects/Security_RSA/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Security_RSA"
 .PHONY : CMakeFiles/Security_RSA.dir/all
 
 # Include target in all.
@@ -76,9 +76,9 @@ all: CMakeFiles/Security_RSA.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Security_RSA.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/meegz/CLionProjects/Security_RSA/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/meegz/Projects/Security_RSA/cmake-build-debug/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Security_RSA.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/meegz/CLionProjects/Security_RSA/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/meegz/Projects/Security_RSA/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Security_RSA.dir/rule
 
 # Convenience name for target.

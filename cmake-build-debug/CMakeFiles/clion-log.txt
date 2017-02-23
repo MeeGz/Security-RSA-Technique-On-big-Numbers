@@ -1,4 +1,4 @@
-/home/meegz/Apps/clion-2016.3.2/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/meegz/CLionProjects/Security_RSA
+/home/meegz/Apps/clion-2016.3.2/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/meegz/Projects/Security_RSA
 -- The C compiler identification is GNU 6.2.0
 -- The CXX compiler identification is GNU 6.2.0
 -- Check for working C compiler: /usr/bin/cc
@@ -15,4 +15,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/meegz/CLionProjects/Security_RSA/cmake-build-debug
+-- Build files have been written to: /home/meegz/Projects/Security_RSA/cmake-build-debug
