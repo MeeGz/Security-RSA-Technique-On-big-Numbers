@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
+#include "math.h"
 #include <chrono>
+
 using namespace std;
 using namespace chrono;
 
@@ -60,11 +62,6 @@ public:
         while(vec[0] == '0' && vec.length() != 1 )
             vec.erase(0,1);
         return vec;
-    }
-    void addNum(bigInt &num1, bigInt &num2) {
-        vector<unsigned long long> sum,num1v = num1.getNumVec() ,num2v = num2.getNumVec();
-        sum = addNum(num1v,num2v);
-        setNumVec(sum);
     }
     static vector<unsigned long long> addNum(vector<unsigned long long> &num1, vector<unsigned long long> &num2) {
         int carry = 0, num1l = num1.size(), num2l = num2.size();
@@ -224,9 +221,6 @@ public:
             return true;
         }
     }
-    void powNumMod(bigInt &num1, bigInt &num2, bigInt &num3) {
-        *this = powNumEx(num1,num2,num3);
-    }
     static bigInt powNumEx(bigInt num1, bigInt num2, bigInt &num3) {
         vector<unsigned long long> num2v = num2.getNumVec();
         bigInt two = {"2"}, result{"1"}, rem;
@@ -280,100 +274,135 @@ public:
             b.setNumVec(b3);
         }
     }
-    static bool isPrime (bigInt &num1) {
-        vector<unsigned long long> three = num1.getNumVec();
-        if(three.size() == 1 & three[0] == 1)
+    static bool isPrime (bigInt &num) {
+        vector<unsigned long long> numv = num.getNumVec();
+        if(numv.size() == 1 && numv[0] == 1)
             return false;
-        if(three.size() == 1 && (three[0] == 2 || three[0] == 2))
+        if(numv.size() == 1 && (numv[0] == 2 || numv[0] == 3))
             return true;
-        bigInt base1, base2;
-        vector<unsigned long long> two = {2};
-        three = {3};
-        base1.setNumVec(two);
-        base2.setNumVec(three);
+        int k = 0;
+        bigInt numMinus1 , q, rem, base1("2"), base2("3"), twoPowerJQ;
+        vector<unsigned long long> tmpNumv, one = {1};
         vector<bigInt> base = {base1,base2};
+        numMinus1.setNumVec(subNum(numv, one));
+        q = numMinus1;
+        while(true)
+        {
+            numMinus1.setNumVec(divNumBy2(numMinus1,rem));
+            if(rem.getNumVec()[0] != 0)
+                break;
+            q = numMinus1;
+            k++;
+        }
         for (int i = 0; i < 2; ++i)
-            if(powNumEx(base[i],num1,num1).getNumVec() == base[i].getNumVec())
+        {
+            tmpNumv = powNumEx(base[i],q,num).getNumVec();
+            if(tmpNumv[0] == 1 && tmpNumv.size() == 1)
                 return true;
+            for (int j = 0; j < k; ++j) {
+                tmpNumv.clear();
+                tmpNumv.push_back(pow(2,j));
+                twoPowerJQ.setNumVec(tmpNumv);
+                twoPowerJQ.mulNum(twoPowerJQ,q);
+                if(powNumEx(base[i], twoPowerJQ, num).getNumVec() == subNum(numv,one))
+                    return true;
+            }
+        }
         return false;
     }
-    void encrypt (bigInt &m, bigInt &e, bigInt &n){
-        *this = powNumEx(m,e,n);
-    }
-    void decrypt (bigInt &c, bigInt &d, bigInt &n){
-        *this = powNumEx(c,d,n);
+    void encrypt (bigInt &m, bigInt &key, bigInt &n){
+        *this = powNumEx(m,key,n);
     }
 };
 
 int main() {
     high_resolution_clock::time_point t1;
     high_resolution_clock::time_point t2;
-    string p,q,e,n,m,c;
-    p = "12369571528747655798110188786567180759626910465726920556567298659370399748072366507234899432827475865189642714067836207300153035059472237275816384410077871";
-    q = "2065420353441994803054315079370635087865508423962173447811880044936318158815802774220405304957787464676771309034463560633713497474362222775683960029689473";
-    e = "65537";
-    c = "4397678428390379126255360246165021910057442267382175543246817108158797115317154540746718616555865161372450860559307149988169566508274711121236049281217144195628407516579953387138808449458611836421032431582081899650685651973204503916459595600207918950383877057152533041873901965623112895996177941667469292738";
-    m = "88";
-//    n = "25548364798832019218170326077010425733930233389897468141147917831084690989884562791601588954296621731652139141347541240725432606132471100644835778517336041031200174441223836394229943651678525471050219216183727749114047330431603023948126844573697946795476319956787513765533596926704755530772983549787878951983";
-//    p = "3";
-//    q = "3";
-//    cin >> p >> q;
 
-    bigInt P(p), Q(q), E(e), N, P1, Q1, phi, D, C(c), cc, M(m), mm, one("1"), two("2"), rem, resAdd, resSub, resMul, resDiv, resPow, resMod{p}, resIsPrime;
-    N.mulNum(P,Q);
-    P1.subNum(P,one);
-    Q1.subNum(Q,one);
-    phi.mulNum(P1,Q1);
-    D.extEuclid(E,phi);
+    bool quit = true;
+    string p, q, e, m, c, input;
+    bigInt P, Q, N, Phi, E, P1, Q1, D, C, M, one("1"), resIsPrime;
 
-    t1 = high_resolution_clock::now();
-    for (int i = 0; i < 1; ++i) {
-        if(resIsPrime.isPrime(P))
-            cout << "YEAAAAAAAAAAAH!" << endl << "P is prime number" << endl;
-        else
-            cout << "NOOOOOOOOOOOOO!" << endl << "P is not prime number" << endl;
-        if(resIsPrime.isPrime(Q))
-            cout << "YEAAAAAAAAAAAH!" << endl << "Q is prime number" << endl;
-        else
-            cout << "NOOOOOOOOOOOOO!" << endl << "Q is not prime number" << endl;
-        N.mulNum(P,Q);
-        phi.mulNum(P1,Q1);
-        D.extEuclid(E,phi);
-        cc.encrypt(M,E,N);
-        mm.decrypt(C,D,N);
-        cout << "N: " << N.getNumStr() << endl;
-        cout << "D-calculated-: " << D.getNumStr() << endl;
-        cout << "Phi(n): " << phi.getNumStr() << endl;
-        cout << "C of M(88): " << cc.getNumStr() << endl;
-        cout << "M of C for M(88): " << mm.getNumStr() << endl;
-//        resAdd.addNum(P,Q);
-//        resSub.subNum(P,Q);
-//        resMul.mulNum(P,Q);
-//        resPow.powNumMod(P,D,N);
-//        resMod.mod(resMod,Q,rem);
-//        resDiv.divNum(P,Q,rem);
+    while(quit)
+    {
+        cin >> input;
+        t1 = high_resolution_clock::now();
+        if ((input[0] == 'p' || input[0] == 'P') && input[1] == '=')
+            P.setNumStr(input.substr(2, input.length()-2));
+        else if ((input[0] == 'q' || input[0] == 'Q') && input[1] == '=')
+            Q.setNumStr(input.substr(2, input.length()-2));
+        else if ((input[0] == 'e' || input[0] == 'E') && input[1] == '=')
+            E.setNumStr(input.substr(2, input.length()-2));
+        else if (input == "IsPPrime")
+            if(resIsPrime.isPrime(P))
+                cout << "Yes" << endl;
+            else
+                cout << "No" << endl;
+        else if (input == "IsQPrime")
+            if(resIsPrime.isPrime(Q))
+                cout << "Yes" << endl;
+            else
+                cout << "No" << endl;
+        else if (input == "PrintN")
+        {
+            if(N.getNumVec().size() == 0)
+                N.mulNum(P,Q);
+            cout << N.getNumStr() << endl;
+        }
+        else if (input == "PrintPhi")
+        {
+            if(Phi.getNumVec().size() == 0)
+            {
+                P1.subNum(P,one);
+                Q1.subNum(Q,one);
+                Phi.mulNum(P1,Q1);
+            }
+            cout << Phi.getNumStr() << endl;
+        }
+        else if (input == "PrintD")
+        {
+            if(Phi.getNumVec().size() == 0)
+            {
+                P1.subNum(P,one);
+                Q1.subNum(Q,one);
+                Phi.mulNum(P1,Q1);
+            }
+            D.extEuclid(E,Phi);
+            cout << D.getNumStr() << endl;
+        }
+        else if (input.substr(0,13) == "EncryptPublic")
+        {
+            m = input.substr(15,input.length()-16);
+            M.setNumStr(m);
+            if(N.getNumVec().size() == 0)
+                N.mulNum(P,Q);
+            C.encrypt(M,E,N);
+            cout << C.getNumStr() << endl;
+        }
+        else if (input.substr(0,14) == "EncryptPrivate")
+        {
+            m = input.substr(16,input.length()-17);
+            M.setNumStr(m);
+            if(N.getNumVec().size() == 0)
+                N.mulNum(P,Q);
+            if(D.getNumVec().size() == 0)
+            {
+                if(Phi.getNumVec().size() == 0)
+                {
+                    P1.subNum(P,one);
+                    Q1.subNum(Q,one);
+                    Phi.mulNum(P1,Q1);
+                }
+                D.extEuclid(E,Phi);
+            }
+            C.encrypt(M,D,N);
+            cout << C.getNumStr() << endl;
+        }
+        else if (input == "Quit" || input == "quit")
+            quit = false;
+        t2 = high_resolution_clock::now();
+        auto duration = duration_cast<microseconds>(t2 - t1).count();
+        cout << "Time : " << duration <<"ms .... as: " << duration/1000000 << " sec"<< endl;
     }
-    t2 = high_resolution_clock::now();
-
-//    cout << "P: " << P.getNumStr() << endl;
-//    cout << "Q: " << Q.getNumStr() << endl;
-//    cout << "N: " << N.getNumStr() << endl;
-//    cout << "P-1: " << P1.getNumStr() << endl;
-//    cout << "Q-1: " << Q1.getNumStr() << endl;
-//    cout << "Phi(n): " << phi.getNumStr() << endl;
-//    cout << "D: " << D.getNumStr() << endl << endl;
-
-//    cout << "Add result: " << resAdd.getNumStr() << endl;
-//    cout << "Sub result: " << resSub.getNumStr() << endl;
-//    cout << "Mul result: " << resMul.getNumStr() << endl;
-//    cout << "Pow result: " << resPow.getNumStr() << endl;
-//    cout << "Mod result: " << resMod.getNumStr() << endl;
-//    cout << "Div result: " << resDiv.getNumStr() << endl << "rem: "<< rem.getNumStr() << endl;
-//    cout << "D-calculated-: " << D.getNumStr() << endl;
-//    cout << "C of M(88): " << cc.getNumStr() << endl;
-//    cout << "M of C for M(88): " << mm.getNumStr() << endl;
-
-    auto duration = duration_cast<microseconds>(t2 - t1).count();
-    cout << "Time : " << duration <<"ms .... as: " << duration/1000000 << " sec"<< endl;
     return 0;
 }
